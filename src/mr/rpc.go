@@ -22,8 +22,34 @@ type ExampleReply struct {
 	Y int
 }
 
-// Add your RPC definitions here.
+type RegisterWorkerRequest struct {
+}
 
+type RegisterWorkerResponse struct {
+	Id      int
+	NMap    int
+	NReduce int
+}
+
+type CheckCoordinatorDoneRequest struct {
+}
+
+type CheckCoordinatorDoneResponse struct {
+	Finished bool
+}
+
+type FetchTaskRequest struct {
+	WorkId int
+}
+
+type FetchTaskResponse struct {
+	HasTask             bool
+	CoordinatorFinished bool
+	TaskTypeAndId       string
+	Filename            string
+}
+
+// Add your RPC definitions here.
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.
